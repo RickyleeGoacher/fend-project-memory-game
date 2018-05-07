@@ -179,6 +179,17 @@ timerSelector.innerHTML = minutes + ':' + seconds;
 timerPrt = setTimeout(startTimer, 1000);
 }
 
+//Reset stars function
+    
+function resetStars (){
+    //Loop over stars and replace class name
+    for (let i = 0; i < stars.length; i++) {
+    stars[2].className = 'fa fa-star';
+    stars[1].className = 'fa fa-star';
+    stars[0].className = 'fa fa-star';
+    }
+}
+
 //End game function to check if all cards match and display congrats
 
 const endGame = function (){
@@ -199,7 +210,8 @@ function resetGame (newCard){
     seconds = 0; //Set seconds back to 0
     minutes = 0; //Set minutes back to 0
     displayMoves(); //Reset move display
-    starRating(); //Reset stars
+    starRating(); //Reset star rating
+    resetStars(); //Call reset stars
     initGame(); //Initialise the game
 }
 
