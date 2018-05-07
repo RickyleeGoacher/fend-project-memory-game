@@ -10,7 +10,7 @@ const shown = document.getElementsByClassName('show'); //Selects card with the c
 const moveSelector = document.querySelector('.moves'); //Selects the moves class
 const stars = document.querySelectorAll('.stars li i'); //Selects the i tag for every li inside the ul with the class stars
 const timerSelector = document.querySelector('.timer'); //Selects the timer
-
+const restart = document.querySelector('.restart'); //Selects the restart icon
 
 let moves = 0; //Number of moves made
 let matched = 0; //Number of cards matched
@@ -179,11 +179,33 @@ timerSelector.innerHTML = minutes + ':' + seconds;
 timerPrt = setTimeout(startTimer, 1000);
 }
 
+//End game function to check if all cards match and display congrats
+
 const endGame = function (){
     if(matched === 8){
         alert('You have won! It only took you ' + minutes + ' minutes and ' + seconds + ' seconds' + ' with a rating of '+ rating + ' stars ' + 'and in only ' + moves + ' moves!' + ' Play again?');
     }
 };
+
+//Reset game function
+
+function resetGame (newCard){
+    cardSelector.className = 'card';
+    $deckSelector.innerHTML = '';
+    openCards = [];
+    moves = 0; //set moves back to 0
+    matched = 0; //set matched cards back to 0
+    rating = 3; //Set rating back to 3
+    seconds = 0; //Set seconds back to 0
+    minutes = 0; //Set minutes back to 0
+    displayMoves(); //Reset move display
+    starRating(); //Reset stars
+    initGame(); //Initialise the game
+}
+
+//Event lister for game reset
+
+restart.addEventListener('click', function() { resetGame(); });
 
 /*
  * set up the event listener for a card. If a card is clicked:
