@@ -6,8 +6,10 @@ let openCards = []; //Array for open cards
 
 const $deckSelector = document.querySelector('.deck'); //Selects the deck class
 const cardSelector = document.getElementsByClassName('card'); //Selects the cards
+const shown = document.getElementsByClassName('show'); //Selects card with the class show
 
-let moves = 0; //Number of moves made 
+let moves = 0; //Number of moves made
+let matched = 0; //Number of cards matched
 
 /*
  * Display the cards on the page
@@ -89,7 +91,7 @@ let checkCards = function (newCard){
     if(openCards.length === 2 && openCards[0] !== openCards[1] ){
         setTimeout(cardFlipBack, 700); // if the cards are not the same call flipBack function
     } else if (openCards[0] === openCards[1]){
-
+        matchCards(newCard); //if the cards do match call the matchCards function
     }   
 };
 
@@ -102,7 +104,18 @@ for(let i = 0; i < cardSelector.length; i++) {
 }
 openCards = []; //Set open cards back to empty
 moves++ //Increment move number
-} 
+}
+
+//If the cards match
+function matchCards (){
+    //Loop through the cards with the class shown and add the class match
+for(let i = 0; i < shown.length; i++) { 
+  shown[i].classList.add('match');
+}
+openCards = []; //Reset openCards
+moves++ //Increment moves
+matched++ //Increment number of matched found
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
