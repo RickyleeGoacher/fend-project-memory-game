@@ -112,6 +112,7 @@ for(let i = 0; i < cardSelector.length; i++) {
 openCards = []; //Set open cards back to empty
 moves++ //Increment move number
 displayMoves(); //Display new move number
+starRating(moves);
 }
 
 //If the cards match
@@ -124,6 +125,7 @@ openCards = []; //Reset openCards
 moves++ //Increment moves
 matched++ //Increment number of matched found
 displayMoves(); //Display new move number
+starRating(moves);
 }
 
 //Display number of moves 
