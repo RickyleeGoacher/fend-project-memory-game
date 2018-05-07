@@ -8,10 +8,16 @@ const $deckSelector = document.querySelector('.deck'); //Selects the deck class
 const cardSelector = document.getElementsByClassName('card'); //Selects the cards
 const shown = document.getElementsByClassName('show'); //Selects card with the class show
 const moveSelector = document.querySelector('.moves'); //Selects the moves class
+const stars = document.querySelectorAll('.stars li i'); //Selects the i tag for every li inside the ul with the class stars
 
 let moves = 0; //Number of moves made
 let matched = 0; //Number of cards matched
 
+let threeStar = 12; //Hard
+let twoStar = 16; //Medium
+let oneStar = 22; //Easy
+
+let rating = 3; //Star rating
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -125,6 +131,27 @@ displayMoves(); //Display new move number
 const displayMoves = function (){
     moveSelector.innerHTML = moves;
 };
+
+//Set the star rating
+
+function starRating (moves){
+
+//Loop over stars and replace class if conditions are met   
+
+for (let i = 0; i < stars.length; i++) {
+    if(moves === threeStar){
+        stars[2].className = 'far fa-star';
+        rating = 2 // change rating
+    }else if (moves === twoStar){
+        stars[1].className = 'far fa-star';
+        rating = 1
+    }else if (moves === oneStar){
+        stars[0].className = 'far fa-star';
+        rating = 0
+    }
+}
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
