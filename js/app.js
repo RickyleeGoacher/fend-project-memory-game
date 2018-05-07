@@ -7,6 +7,8 @@ let openCards = []; //Array for open cards
 const $deckSelector = document.querySelector('.deck'); //Selects the deck class
 const cardSelector = document.getElementsByClassName('card'); //Selects the cards
 
+let moves = 0; //Number of moves made 
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -78,7 +80,29 @@ const createDeck = function (card){
         })();
         
     }
-};    
+};
+
+//Function to check cards for how many have been flipped and whether or not they match 
+
+let checkCards = function (newCard){
+    //Check how many cards are open and if they match
+    if(openCards.length === 2 && openCards[0] !== openCards[1] ){
+        setTimeout(cardFlipBack, 700); // if the cards are not the same call flipBack function
+    } else if (openCards[0] === openCards[1]){
+
+    }   
+};
+
+// Flip the cards back over if there is two and they don't match
+
+function cardFlipBack (){
+//Loop over the cards and remove the open and show classes  
+for(let i = 0; i < cardSelector.length; i++) { 
+  cardSelector[i].classList.remove('open', 'show');
+}
+openCards = []; //Set open cards back to empty
+moves++ //Increment move number
+} 
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
