@@ -117,6 +117,7 @@ for(let i = 0; i < shown.length; i++) {
 openCards = []; //Reset openCards
 moves++ //Increment moves
 matched++ //Increment number of matched found
+displayMoves(); //Display new move number
 }
 
 //Display number of moves 
