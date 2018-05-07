@@ -9,6 +9,8 @@ const cardSelector = document.getElementsByClassName('card'); //Selects the card
 const shown = document.getElementsByClassName('show'); //Selects card with the class show
 const moveSelector = document.querySelector('.moves'); //Selects the moves class
 const stars = document.querySelectorAll('.stars li i'); //Selects the i tag for every li inside the ul with the class stars
+const timerSelector = document.querySelector('.timer'); //Selects the timer
+
 
 let moves = 0; //Number of moves made
 let matched = 0; //Number of cards matched
@@ -18,6 +20,11 @@ let twoStar = 16; //Medium
 let oneStar = 22; //Easy
 
 let rating = 3; //Star rating
+
+let seconds = 0;
+let minutes = 0;
+let timerPtr;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -154,6 +161,23 @@ for (let i = 0; i < stars.length; i++) {
 }
 }
 
+//Timer function
+
+function startTimer(){
+
+//If seconds equal 59 set seconds to 0 and add 1 minute
+
+if(seconds === 59){
+    seconds = 0;
+    minutes++
+} else{
+    seconds++
+}
+
+timerSelector.innerHTML = minutes + ':' + seconds;
+timerPrt = setTimeout(startTimer, 1000);
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -166,4 +190,5 @@ for (let i = 0; i < stars.length; i++) {
  */
 document.addEventListener("DOMContentLoaded", function(){
   initGame(); //Initiialise game
+  startTimer(); //Start the timer
 });
