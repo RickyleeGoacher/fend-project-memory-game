@@ -61,6 +61,17 @@ const createDeck = function (card){
                 //Add the class fas and itterate over the card array to append card classes
                 cardIcon.setAttribute("class", card[i]);
 
+                //Add event listeners open and show to the cards when clicked
+                newCard.addEventListener('click', clickEvent);
+
+                function clickEvent(){
+                    newCard.classList.add('open'); //Add class open
+                    newCard.classList.add('show'); //Add class show
+                    openCards.push(card[i]); //Pushes card into the openCards array
+                    checkCards(newCard); //Calls a function to check cards  
+                    }
+
+
         })();
         
     }
