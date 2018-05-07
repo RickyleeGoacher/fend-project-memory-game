@@ -133,6 +133,7 @@ moves++ //Increment moves
 matched++ //Increment number of matched found
 displayMoves(); //Display new move number
 starRating(moves);
+endGame(); //Check if all cards match
 }
 
 //Display number of moves 
@@ -177,6 +178,12 @@ if(seconds === 59){
 timerSelector.innerHTML = minutes + ':' + seconds;
 timerPrt = setTimeout(startTimer, 1000);
 }
+
+const endGame = function (){
+    if(matched === 8){
+        alert('You have won! It only took you ' + minutes + ' minutes and ' + seconds + ' seconds' + ' with a rating of '+ rating + ' stars ' + 'and in only ' + moves + ' moves!' + ' Play again?');
+    }
+};
 
 /*
  * set up the event listener for a card. If a card is clicked:
