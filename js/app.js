@@ -7,6 +7,7 @@ let openCards = []; //Array for open cards
 const $deckSelector = document.querySelector('.deck'); //Selects the deck class
 const cardSelector = document.getElementsByClassName('card'); //Selects the cards
 const shown = document.getElementsByClassName('show'); //Selects card with the class show
+const moveSelector = document.querySelector('.moves'); //Selects the moves class
 
 let moves = 0; //Number of moves made
 let matched = 0; //Number of cards matched
@@ -104,6 +105,7 @@ for(let i = 0; i < cardSelector.length; i++) {
 }
 openCards = []; //Set open cards back to empty
 moves++ //Increment move number
+displayMoves(); //Display new move number
 }
 
 //If the cards match
@@ -116,6 +118,12 @@ openCards = []; //Reset openCards
 moves++ //Increment moves
 matched++ //Increment number of matched found
 }
+
+//Display number of moves 
+
+const displayMoves = function (){
+    moveSelector.innerHTML = moves;
+};
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
