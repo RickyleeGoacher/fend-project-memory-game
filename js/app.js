@@ -30,6 +30,38 @@ function initGame (){
 	let card = shuffle(cards); //Shuffles cards
 
 	}
+
+// Function to generate cards and append the class card to the generate list items
+const createDeck = function (card){
+
+    const deckLength = card.length; //Get card array length for card gen
+
+        //iterate over the array and call genCard
+        for (let i = 0; i < deckLength; i++) {
+
+            //Imediately invoked generate deck function to create elements and appned classes   
+            const genDeck = (function (){
+    
+                //Create elements
+                let newCard = document.createElement('li');
+                const cardIcon = document.createElement('i');
+
+                // Give <li> class of card
+                newCard.classList.add('card');
+
+                // Update the new <li> to the deck <ul>
+                $deckSelector.appendChild(newCard);
+
+                //Append the card icon to the new card element
+                newCard.appendChild(cardIcon);
+
+                //Add the class fas and itterate over the card array to append card classes
+                cardIcon.setAttribute("class", card[i]);
+
+        })();
+        
+    }
+};    
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
