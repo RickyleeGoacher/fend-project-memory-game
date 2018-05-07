@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+const cards = ["fas fa-pound-sign", "fas fa-pound-sign", "fas fa-dollar-sign", "fas fa-dollar-sign", "fas fa-euro-sign", "fas fa-euro-sign", "fas fa-yen-sign", "fas fa-yen-sign", "fas fa-ruble-sign", "fas fa-ruble-sign", "fas fa-rupee-sign", "fas fa-rupee-sign", "fas fa-shekel-sign", "fas fa-shekel-sign", "fas fa-won-sign", "fas fa-won-sign"];
 
 /*
  * Display the cards on the page
