@@ -25,13 +25,6 @@ let seconds = 0;
 let minutes = 0;
 let timerPtr;
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -63,7 +56,7 @@ const createDeck = function (card){
         //iterate over the array and call genCard
         for (let i = 0; i < deckLength; i++) {
 
-            //Imediately invoked generate deck function to create elements and appned classes   
+            //Imediately invoked generate deck function to create elements and appned classes
             const genDeck = (function (){
     
                 //Create elements
@@ -89,7 +82,7 @@ const createDeck = function (card){
                     newCard.classList.add('open'); //Add class open
                     newCard.classList.add('show'); //Add class show
                     openCards.push(card[i]); //Pushes card into the openCards array
-                    checkCards(newCard); //Calls a function to check cards  
+                    checkCards(newCard); //Calls a function to check cards
                     }
 
 
@@ -98,7 +91,7 @@ const createDeck = function (card){
     }
 };
 
-//Function to check cards for how many have been flipped and whether or not they match 
+//Function to check cards for how many have been flipped and whether or not they match
 
 let checkCards = function (newCard){
     //Check how many cards are open and if they match
@@ -112,9 +105,9 @@ let checkCards = function (newCard){
 // Flip the cards back over if there is two and they don't match
 
 function cardFlipBack (){
-//Loop over the cards and remove the open and show classes  
-for(let i = 0; i < cardSelector.length; i++) { 
-  cardSelector[i].classList.remove('open', 'show');
+//Loop over the cards and remove the open and show classes
+for(let i = 0; i < cardSelector.length; i++) {
+    cardSelector[i].classList.remove('open', 'show');
 }
 openCards = []; //Set open cards back to empty
 moves++ //Increment move number
@@ -125,8 +118,8 @@ starRating(moves);
 //If the cards match
 function matchCards (){
     //Loop through the cards with the class shown and add the class match
-for(let i = 0; i < shown.length; i++) { 
-  shown[i].classList.add('match');
+for(let i = 0; i < shown.length; i++) {
+    shown[i].classList.add('match');
 }
 openCards = []; //Reset openCards
 moves++ //Increment moves
@@ -136,7 +129,7 @@ starRating(moves);
 endGame(); //Check if all cards match
 }
 
-//Display number of moves 
+//Display number of moves
 
 const displayMoves = function (){
     moveSelector.innerHTML = moves;
@@ -146,7 +139,7 @@ const displayMoves = function (){
 
 function starRating (moves){
 
-//Loop over stars and replace class if conditions are met   
+//Loop over stars and replace class if conditions are met
 
 for (let i = 0; i < stars.length; i++) {
     if(moves === threeStar){
@@ -219,7 +212,18 @@ function resetGame (newCard){
 
 restart.addEventListener('click', function() { resetGame(); });
 
+document.addEventListener("DOMContentLoaded", function(){
+  initGame(); //Initiialise game
+  startTimer(); //Start the timer
+});
+
 /*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
+ /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
@@ -229,7 +233,3 @@ restart.addEventListener('click', function() { resetGame(); });
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-document.addEventListener("DOMContentLoaded", function(){
-  initGame(); //Initiialise game
-  startTimer(); //Start the timer
-});
