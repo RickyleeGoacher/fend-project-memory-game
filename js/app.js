@@ -3,6 +3,7 @@
  */
 const cards = ["fas fa-pound-sign", "fas fa-pound-sign", "fas fa-dollar-sign", "fas fa-dollar-sign", "fas fa-euro-sign", "fas fa-euro-sign", "fas fa-yen-sign", "fas fa-yen-sign", "fas fa-ruble-sign", "fas fa-ruble-sign", "fas fa-rupee-sign", "fas fa-rupee-sign", "fas fa-shekel-sign", "fas fa-shekel-sign", "fas fa-won-sign", "fas fa-won-sign"];
 
+const $deckSelector = document.querySelector('.deck'); //Selects the deck class
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -28,6 +29,8 @@ function shuffle(array) {
 function initGame (){
 
 	let card = shuffle(cards); //Shuffles cards
+
+    createDeck(card); //Calls create deck function
 
 	}
 
