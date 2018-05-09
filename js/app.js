@@ -10,7 +10,10 @@ const shown = document.getElementsByClassName('show'); //Selects card with the c
 const moveSelector = document.querySelector('.moves'); //Selects the moves class
 const stars = document.querySelectorAll('.stars li i'); //Selects the i tag for every li inside the ul with the class stars
 const timerSelector = document.querySelector('.timer'); //Selects the timer
-const restart = document.querySelector('.restart'); //Selects the restart icon
+const restart = document.querySelectorAll('.restart'); //Selects the restart icon
+const modalSelector = document.getElementById('congrats-modal'); //Selects congratulations modal
+const congrats = document.querySelector('.congrats'); //Selects congrats text
+const modalRestart = document.querySelector('.modal-restart'); //Selects modal restart
 
 let moves = 0; //Number of moves made
 let matched = 0; //Number of cards matched
@@ -185,11 +188,26 @@ function resetStars (){
 
 //End game function to check if all cards match and display congrats
 
+//Event lister for game reset
+
+restart[1].addEventListener('click', function() { resetGame(); });
+restart[0].addEventListener('click', function() { resetGame(); }); //Possible error, couldn't select both in one line e.g [0, 1].addEventListner
+
+//Check to see if all card matched have been found and display congradulations message
+
 const endGame = function (){
     if(matched === 8){
-        alert('You have won! It only took you ' + minutes + ' minutes and ' + seconds + ' seconds' + ' with a rating of '+ rating + ' stars ' + 'and in only ' + moves + ' moves!' + ' Play again?');
+        clearTimeout(timerPrt); //Stops timer
+        modalSelector.style.display = "block"; //Displays modal 
+        congrats.innerHTML = 'Well done! It only took you ' + minutes + ' minutes and ' + seconds + ' seconds' + ' with a rating of '+ rating + ' stars ' + 'and in only ' + moves + ' moves!';
     }
 };
+
+modalRestart.addEventListener('click', function() {
+    modalSelector.style.display = "none"; //Hides modal
+    resetGame();
+    startTimer(); //Start the timer
+});
 
 //Reset game function
 
@@ -207,10 +225,6 @@ function resetGame (newCard){
     resetStars(); //Call reset stars
     initGame(); //Initialise the game
 }
-
-//Event lister for game reset
-
-restart.addEventListener('click', function() { resetGame(); });
 
 document.addEventListener("DOMContentLoaded", function(){
   initGame(); //Initiialise game
