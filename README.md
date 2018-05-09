@@ -21,7 +21,7 @@ Due to falling slightly behind on the udacity FEND course updates will be postpo
 ## Options to play
 
 * Download or clone the game from the Github repository and load index.html in tour browser.
-* Click this link and play the live version.
+* Click this [Udacity currency memory game](https://rickyleegoacher.github.io./) and play the live version.
 
 ### Difficulty
 
