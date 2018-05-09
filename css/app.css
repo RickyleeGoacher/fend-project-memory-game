@@ -116,3 +116,40 @@ h1 {
 .time{
     margin-left: 50px;
 }
+
+#congrats-modal{
+    position: absolute;
+    display: none;
+    top: 30%;
+    width: 50%;
+    height: 400px;
+    padding: 5%;
+    background-color: #f3f3f3;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+#congrats-modal h2{
+    text-align: center;
+}
+
+.modal-restart{
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+#congrats-modal .restart {
+    font-size: 2em;
+    margin-top: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tick-icon{
+    width: 50px;
+    margin: 0 auto;
+}
+
+.fa-check{
+    font-size: 4em;
+}
