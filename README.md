@@ -56,3 +56,4 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 [Font Awesome](https://fontawesome.com/) - Currency icons from FontAwesome.
 [w3schools how to make modals](https://www.w3schools.com/howto/howto_css_modals.asp) - Information on how to make modals.
+[w3schools - Timers](https://www.w3schools.com/js/js_timing.asp)
