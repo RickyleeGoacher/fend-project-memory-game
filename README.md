@@ -1,28 +1,44 @@
 # Memory Game Project
 
-Part of the udacity frontend developers nano degree
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+Udacity FEND Memory Game Project | Made with vanilla JavaScript
 
-## Important notes
+## Future updates
 
-Made using the Udacity starter code and files provided to all students [FEND Memory game project](https://github.com/udacity/fend-project-memory-game).
+Due to falling slightly behind on the udacity FEND course updates will be postponed for a short while :)
 
-## Table of Contents
+* Adding a better timer and having it intergrated into the score system.
+* Attempting to build my own shuffle function.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
 
-## Instructions
+### How to play
 
-Click to flip the cards and find a match. Complete the game by finding all the matching cards.
+* When the game loads the timer will start.
+* Click the tiles to turn them over. Make sure to remember the currency you saw.
+* Flip another card, if it matched, the cards will stay on screen. 
+* If the cards don't match, they will both turn back over.
+* Repeat untill all the cards are matched.
 
-3 stars = 12 moves
-2 stars = 18 moves
-1 star = 22 moves
+## Options to play
 
-When all cards have been matched a congradulation modal will appear with the time, moves and star rating you achieved.
+* Download or clone the game from the Github repository and load index.html in tour browser.
+* Click this link and play the live version.
 
-## Project Instructions
+### Difficulty
+
+There is three possible star ratings you can achieve based on how many moves it takes you to complete the game.
+
+* Easy - 22 Moves 
+* Medium - 16 Moves
+* Hard - 12 Moves
+
+## Features
+
+* Timer - The timer will start when the game begins and you will be given your time at the end of the game.
+* Move counter - Displays the current number of moves you have made.
+* Star rating - Dynamically displays your current star rating, starting at three stars and dropping to zero as you make your moves.
+* Restart button - Made a mistake? don't worry, click the reset button to start the game fresh.
+
+## The Instructions i recieved for the project
 
 The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
@@ -36,6 +52,7 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## External libraries
+## Dependencies 
 
-[Font awesome](https://fontawesome.com/).
+[Font Awesome](https://fontawesome.com/) - Currency icons from FontAwesome.
+[w3schools how to make modals](https://www.w3schools.com/howto/howto_css_modals.asp) - Information on how to make modals.
